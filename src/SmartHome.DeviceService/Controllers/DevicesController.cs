@@ -7,6 +7,7 @@ using SmartHome.Infrastructure.DbContexts;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 [assembly: ApiConventionType(typeof(DefaultApiConventions))]
 
@@ -31,6 +32,7 @@ namespace SmartHome.DeviceService.Controllers
         /// </summary>
         /// <returns>All devices</returns>
         [HttpGet]
+        [Authorize]
         public IEnumerable<Device> GetDevices()
         {
             return _context.Devices;
@@ -42,6 +44,7 @@ namespace SmartHome.DeviceService.Controllers
         /// <param name="id">Device id</param>
         /// <returns>Device with given id</returns>
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<IActionResult> GetDevice([FromRoute] int id)
         {
             if (!ModelState.IsValid)
@@ -65,6 +68,7 @@ namespace SmartHome.DeviceService.Controllers
         /// <param name="id">Device id</param>
         /// <param name="dto">Data transfer object</param>
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutDevice([FromRoute] int id, [FromBody] UpdateDeviceDto dto)
         {
             if (!ModelState.IsValid)
@@ -103,27 +107,29 @@ namespace SmartHome.DeviceService.Controllers
             return NoContent();
         }
 
-        //[HttpPost]
-        //[Route("Register")]
-        //public async Task<IActionResult> PostDevice([FromBody] RegisterDeviceDto dto)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+        [HttpPost]
+        [Route("Register")]
+        [AllowAnonymous]
+        public async Task<IActionResult> PostDevice([FromBody] RegisterDeviceDto dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //    var device = dto.Adapt<Device>();
+            var device = dto.Adapt<Device>();
 
-        //    var ipv4 = Request.HttpContext.Connection.RemoteIpAddress.MapToIPv4();
-        //    device.IPv4Address = ipv4.ToString();
+            var ipv4 = Request.HttpContext.Connection.RemoteIpAddress.MapToIPv4();
+            device.IPv4Address = ipv4.ToString();
 
-        //    _context.Devices.Add(device);
-        //    await _context.SaveChangesAsync();
+            _context.Devices.Add(device);
+            await _context.SaveChangesAsync();
 
-        //    return CreatedAtAction("GetDevice", new { id = device.Id }, device);
-        //}
+            return CreatedAtAction("GetDevice", new { id = device.Id }, device);
+        }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteDevice([FromRoute] int id)
         {
             if (!ModelState.IsValid)
