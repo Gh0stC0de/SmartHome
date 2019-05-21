@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using SmartHome.Core.Models;
 
 namespace SmartHome.Infrastructure.DbContexts
@@ -6,12 +7,17 @@ namespace SmartHome.Infrastructure.DbContexts
     /// <summary>
     ///     Database context for smart home
     /// </summary>
-    public class SmartHomeContext : DbContext
+    public class SmartHomeContext : IdentityDbContext
     {
         /// <inheritdoc />
-        public SmartHomeContext(DbContextOptions options)
+        public SmartHomeContext(DbContextOptions<SmartHomeContext> options)
             : base(options)
         {            
+        }
+
+        /// <inheritdoc />
+        public SmartHomeContext()
+        {
         }
 
         /// <summary>
