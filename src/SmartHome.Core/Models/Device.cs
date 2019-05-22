@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace SmartHome.Core.Models
 {
@@ -43,5 +44,11 @@ namespace SmartHome.Core.Models
         /// </summary>
         [Required]
         public string MacAddress { get; set; }
+
+        /// <summary>
+        ///     <c>True</c> if the device is authenticated
+        /// </summary>
+        [DefaultValue(false)]
+        public bool IsAuthenticated { get; set; }
     }
 }
