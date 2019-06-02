@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20190525213722_Add Button.cs" />
+    <Compile Remove="Migrations\20190525213722_Add Button.Designer.cs" />
+    <Compile Remove="Migrations\20190525214149_Add Button.cs" />
+    <Compile Remove="Migrations\20190525214149_Add Button.Designer.cs" />
+    <Compile Remove="Migrations\20190525214627_Add Button.cs" />
+    <Compile Remove="Migrations\20190525214627_Add Button.Designer.cs" />
+    <Compile Remove="Migrations\20190525215025_Add Button.cs" />
+    <Compile Remove="Migrations\20190525215025_Add Button.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.4" />

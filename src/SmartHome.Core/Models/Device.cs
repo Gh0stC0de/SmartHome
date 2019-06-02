@@ -1,5 +1,7 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using SmartHome.Core.Models.Abstractions;
 
 namespace SmartHome.Core.Models
 {
@@ -50,5 +52,10 @@ namespace SmartHome.Core.Models
         /// </summary>
         [DefaultValue(false)]
         public bool IsAuthenticated { get; set; }
+
+        /// <summary>
+        ///     Actor components
+        /// </summary>
+        public virtual List<ActorComponent> ActorComponents { get; set; }
     }
 }

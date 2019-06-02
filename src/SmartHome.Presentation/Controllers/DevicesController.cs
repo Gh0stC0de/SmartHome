@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SmartHome.Core.Models;
 using SmartHome.Infrastructure.DbContexts;
@@ -36,6 +33,7 @@ namespace SmartHome.Presentation.Controllers
             }
 
             var device = await _context.Devices
+                .Include(d => d.ActorComponents)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (device == null)
             {
