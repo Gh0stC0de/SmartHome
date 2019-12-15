@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using SmartHome.Core.Models.Abstractions;
 
-namespace SmartHome.Core.Models
+namespace SmartHome.Service.Models.Device
 {
     /// <summary>
-    ///     Device model
+    ///     Represents a device detail response.
     /// </summary>
-    public class Device
+    public class DeviceDetailResponse
     {
         /// <summary>
         ///     Identity
@@ -38,19 +35,11 @@ namespace SmartHome.Core.Models
         /// <summary>
         ///     Internet protocol v4 address
         /// </summary>
-        [Required]
         public string IPv4Address { get; set; }
 
         /// <summary>
         ///     Mac address
         /// </summary>
-        [Required]
         public string MacAddress { get; set; }
-
-        // TODO Actor components
-        /// <summary>
-        ///     Actor components
-        /// </summary>
-        //public virtual List<ActorComponent> ActorComponents { get; set; }
     }
 }

@@ -36,7 +36,7 @@ namespace SmartHome.Core.Models.Implementations
         /// <param name="delay">Relay delay</param>
         private async Task PressButton(Device device, int pinNumber, int delay)
         {
-            var uri = $"https://{device.IPv4Address}/relay?pin={pinNumber}delay={delay}";
+            var uri = $"https://{device.IPv4Address}/relay?pin={pinNumber}&delay={delay}";
 
             await WebHelper.PostAsync(uri, string.Empty, string.Empty);
         }

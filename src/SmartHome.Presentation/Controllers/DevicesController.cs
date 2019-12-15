@@ -1,10 +1,15 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartHome.Core.Models;
 using SmartHome.Infrastructure.DbContexts;
+using SmartHome.Infrastructure.DbContexts.Implementations;
 
 namespace SmartHome.Presentation.Controllers
 {
@@ -21,11 +26,21 @@ namespace SmartHome.Presentation.Controllers
         // GET: Devices
         public async Task<IActionResult> Index()
         {
+            /// TODO Switch JWT and use JWT
+            //var cookiecol = new CookieContainer();
+            //foreach (var requestCookie in Request.Cookies)
+            //{
+            //    cookiecol.Add(new Cookie(requestCookie.Key, requestCookie.Value));
+            //}
+            //var client = new HttpClient(new HttpClientHandler{ CookieContainer = cookiecol});
+            //client.DefaultRequestHeaders.Authorization =
+            //    new AuthenticationHeaderValue("Bearer", "");
+            //var result = await client.GetAsync("api/Device");
             return View(await _context.Devices.ToListAsync());
         }
 
         // GET: Devices/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
             {
@@ -33,7 +48,7 @@ namespace SmartHome.Presentation.Controllers
             }
 
             var device = await _context.Devices
-                .Include(d => d.ActorComponents)
+                //.Include(d => d.ActorComponents)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (device == null)
             {
@@ -86,7 +101,7 @@ namespace SmartHome.Presentation.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,AccessToken,Name,Description,Location,IPv4Address,MacAddress")] Device device)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,AccessToken,Name,Description,Location,IPv4Address,MacAddress")] Device device)
         {
             if (id != device.Id)
             {
@@ -117,7 +132,7 @@ namespace SmartHome.Presentation.Controllers
         }
 
         // GET: Devices/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
             {
@@ -145,7 +160,7 @@ namespace SmartHome.Presentation.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool DeviceExists(int id)
+        private bool DeviceExists(Guid id)
         {
             return _context.Devices.Any(e => e.Id == id);
         }

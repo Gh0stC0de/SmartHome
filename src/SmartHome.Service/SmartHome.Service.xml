@@ -1,0 +1,371 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SmartHome.Service</name>
+    </assembly>
+    <members>
+        <member name="T:SmartHome.Service.Controllers.DeviceController">
+            <summary>
+                Controls devices.
+            </summary>
+        </member>
+        <member name="M:SmartHome.Service.Controllers.DeviceController.#ctor(SmartHome.Core.Services.Abstractions.IDeviceService)">
+            <summary>
+                Initializes a new instance of the <see cref="T:SmartHome.Service.Controllers.DeviceController" /> with a device service.
+            </summary>
+            <param name="deviceService">The device service.</param>
+        </member>
+        <member name="M:SmartHome.Service.Controllers.DeviceController.Register(SmartHome.Service.Models.Device.DeviceRegistration)">
+            <summary>
+                Registers a device.
+            </summary>
+            <param name="model">Device registration model</param>
+            <returns>Action result</returns>
+        </member>
+        <member name="M:SmartHome.Service.Controllers.DeviceController.Authenticate(SmartHome.Service.Models.Device.DeviceAuthentication)">
+            <summary>
+                Authenticates a device.
+            </summary>
+            <param name="model">The device authentication</param>
+        </member>
+        <member name="M:SmartHome.Service.Controllers.DeviceController.GetDevices">
+            <summary>
+                Gets all devices.
+            </summary>
+            <returns>All devices</returns>
+            <example>GET: api/Device</example>
+        </member>
+        <member name="M:SmartHome.Service.Controllers.DeviceController.GetDevice(System.Nullable{System.Guid})">
+            <summary>
+                Gets a device by the identity.
+            </summary>
+            <param name="id">The device identity</param>
+            <returns>The device</returns>
+            <example>GET: api/Device/5</example>
+        </member>
+        <member name="T:SmartHome.Service.Controllers.UserController">
+            <summary>
+                Controls interaction with user.
+            </summary>
+        </member>
+        <member name="M:SmartHome.Service.Controllers.UserController.#ctor(SmartHome.Core.Services.Abstractions.IAuthenticationService)">
+            <summary>
+                Initializes a new instance of the <see cref="T:SmartHome.Service.Controllers.UserController" /> class with a user service.
+            </summary>
+            <param name="authenticationService">The authentication service</param>
+        </member>
+        <member name="M:SmartHome.Service.Controllers.UserController.Authenticate(SmartHome.Service.Models.User.UserAuthentication)">
+            <summary>
+                Authenticates a user.
+            </summary>
+            <param name="model">User authentication model</param>
+            <returns>Action result</returns>
+        </member>
+        <member name="M:SmartHome.Service.Controllers.UserController.Register(SmartHome.Service.Models.User.UserRegistration)">
+            <summary>
+                Registers a user.
+            </summary>
+            <param name="model">The user register</param>
+            <returns>Action result</returns>
+        </member>
+        <member name="T:SmartHome.Service.Helpers.MappingHelper">
+            <summary>
+                Helper class for <see cref="N:Mapster"/> mappings.
+            </summary>
+        </member>
+        <member name="M:SmartHome.Service.Helpers.MappingHelper.ConfigureMappings">
+            <summary>
+                Configures mappings
+            </summary>
+        </member>
+        <member name="T:SmartHome.Service.Models.BadRequestResponse">
+            <summary>
+                Represents a bad request response.
+            </summary>
+        </member>
+        <member name="M:SmartHome.Service.Models.BadRequestResponse.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:SmartHome.Service.Models.BadRequestResponse" /> class.
+            </summary>
+        </member>
+        <member name="M:SmartHome.Service.Models.BadRequestResponse.#ctor(System.String,System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:SmartHome.Service.Models.BadRequestResponse" /> class with a title and a detail.
+            </summary>
+            <param name="title">The title</param>
+            <param name="detail">The detail</param>
+        </member>
+        <member name="P:SmartHome.Service.Models.BadRequestResponse.Title">
+            <summary>
+                Title
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.BadRequestResponse.Detail">
+            <summary>
+                Detail
+            </summary>
+        </member>
+        <member name="T:SmartHome.Service.Models.Device.DeviceAuthentication">
+            <summary>
+                Represents a device authentication.
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.Device.DeviceAuthentication.MacAddress">
+            <summary>
+                The mac address
+            </summary>
+        </member>
+        <member name="T:SmartHome.Service.Models.Device.DeviceAuthenticationResponse">
+            <summary>
+                Represents a device authentication response.
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.Device.DeviceAuthenticationResponse.Id">
+            <summary>
+                The device identity
+            </summary>
+        </member>
+        <member name="T:SmartHome.Service.Models.Device.DeviceDetailResponse">
+            <summary>
+                Represents a device detail response.
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.Device.DeviceDetailResponse.Id">
+            <summary>
+                Identity
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.Device.DeviceDetailResponse.AccessToken">
+            <summary>
+                Token to access device
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.Device.DeviceDetailResponse.Name">
+            <summary>
+                Device name
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.Device.DeviceDetailResponse.Description">
+            <summary>
+                Device description
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.Device.DeviceDetailResponse.Location">
+            <summary>
+                Device location
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.Device.DeviceDetailResponse.IPv4Address">
+            <summary>
+                Internet protocol v4 address
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.Device.DeviceDetailResponse.MacAddress">
+            <summary>
+                Mac address
+            </summary>
+        </member>
+        <member name="T:SmartHome.Service.Models.Device.DeviceRegistration">
+            <summary>
+                Represents a device registration.
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.Device.DeviceRegistration.MacAddress">
+            <summary>
+                Mac address of the device.
+            </summary>
+        </member>
+        <member name="T:SmartHome.Service.Models.Device.DeviceRegistrationResponse">
+            <summary>
+                Represents a device registration response.
+            </summary>
+        </member>
+        <member name="M:SmartHome.Service.Models.Device.DeviceRegistrationResponse.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:SmartHome.Service.Models.Device.DeviceRegistrationResponse" /> class.
+            </summary>
+        </member>
+        <member name="M:SmartHome.Service.Models.Device.DeviceRegistrationResponse.#ctor(System.Guid,System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:SmartHome.Service.Models.Device.DeviceRegistrationResponse" /> class with the device identifier and mac
+                address.
+            </summary>
+            <param name="id">The device identifier</param>
+            <param name="macAddress">The device mac address</param>
+        </member>
+        <member name="P:SmartHome.Service.Models.Device.DeviceRegistrationResponse.Id">
+            <summary>
+                The device identity
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.Device.DeviceRegistrationResponse.MacAddress">
+            <summary>
+                The mac address of the device
+            </summary>
+        </member>
+        <member name="T:SmartHome.Service.Models.Device.DeviceResponse">
+            <summary>
+                Represents a device response.
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.Device.DeviceResponse.Id">
+            <summary>
+                Device identity
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.Device.DeviceResponse.Name">
+            <summary>
+                Device name
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.Device.DeviceResponse.MacAddress">
+            <summary>
+                Device mac address
+            </summary>
+        </member>
+        <member name="T:SmartHome.Service.Models.User.UserAuthentication">
+            <summary>
+                Represents a model for authentication.
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.User.UserAuthentication.Username">
+            <summary>
+                Username
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.User.UserAuthentication.Password">
+            <summary>
+                Password
+            </summary>
+        </member>
+        <member name="T:SmartHome.Service.Models.User.UserAuthenticationResponse">
+            <summary>
+                Represents an user authentication response.
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.User.UserAuthenticationResponse.UserId">
+            <summary>
+                Identity
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.User.UserAuthenticationResponse.Username">
+            <summary>
+                Username
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.User.UserAuthenticationResponse.Token">
+            <summary>
+                API token
+            </summary>
+        </member>
+        <member name="T:SmartHome.Service.Models.User.UserRegistration">
+            <summary>
+                Represents a user registration.
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.User.UserRegistration.Username">
+            <summary>
+                Username
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.User.UserRegistration.Password">
+            <summary>
+                Password
+            </summary>
+        </member>
+        <member name="T:SmartHome.Service.Models.User.UserRegistrationResponse">
+            <summary>
+                Represents a user registration response.
+            </summary>
+        </member>
+        <member name="M:SmartHome.Service.Models.User.UserRegistrationResponse.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:SmartHome.Service.Models.User.UserRegistrationResponse" /> class.
+            </summary>
+        </member>
+        <member name="M:SmartHome.Service.Models.User.UserRegistrationResponse.#ctor(System.Guid,System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:SmartHome.Service.Models.User.UserRegistrationResponse" /> class with a user identity and a username.
+            </summary>
+            <param name="userId">The user identity</param>
+            <param name="username">The username</param>
+        </member>
+        <member name="P:SmartHome.Service.Models.User.UserRegistrationResponse.UserId">
+            <summary>
+                User identity
+            </summary>
+        </member>
+        <member name="P:SmartHome.Service.Models.User.UserRegistrationResponse.Username">
+            <summary>
+                Username
+            </summary>
+        </member>
+        <member name="T:SmartHome.Service.Program">
+            <summary>
+                Represents the program.
+            </summary>
+        </member>
+        <member name="M:SmartHome.Service.Program.Main(System.String[])">
+            <summary>
+                Main function of the program.
+            </summary>
+            <param name="args">Arguments</param>
+        </member>
+        <member name="M:SmartHome.Service.Program.CreateHostBuilder(System.String[])">
+            <summary>
+                Creates a host builder.
+            </summary>
+            <param name="args">Arguments</param>
+            <returns>Host builder</returns>
+        </member>
+        <member name="T:SmartHome.Service.Startup">
+            <summary>
+                Manages application startup.
+            </summary>
+        </member>
+        <member name="M:SmartHome.Service.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+                Initializes a new instance of the <see cref="T:SmartHome.Service.Startup" /> class with a configuration.
+            </summary>
+            <param name="configuration">Configuration</param>
+        </member>
+        <member name="P:SmartHome.Service.Startup.Configuration">
+            <summary>
+                Configuration
+            </summary>
+        </member>
+        <member name="M:SmartHome.Service.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Configures services.
+            </summary>
+            <param name="services">Service collection</param>
+        </member>
+        <member name="M:SmartHome.Service.Startup.ConfigureAuthentication(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Byte[])">
+            <summary>
+                Configures the authentication.
+            </summary>
+            <param name="services">Services</param>
+            <param name="secret">Issuer signing key secret</param>
+        </member>
+        <member name="M:SmartHome.Service.Startup.ConfigureSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Configures swagger.
+            </summary>
+            <param name="services">Services</param>
+        </member>
+        <member name="M:SmartHome.Service.Startup.ConfigureSmartHomeDbContext(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+                Configures smart home db context.
+            </summary>
+            <param name="services">Services</param>
+            <param name="appSettingsSection">Application settings configuration section</param>
+        </member>
+        <member name="M:SmartHome.Service.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+                Configures the HTTP request pipeline.
+            </summary>
+            <param name="app">Application builder</param>
+            <param name="env">Web host environment</param>
+        </member>
+    </members>
+</doc>
