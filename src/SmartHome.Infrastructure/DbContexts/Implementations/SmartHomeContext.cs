@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SmartHome.Core.Models;
-using SmartHome.Core.Models.Implementations;
 
 namespace SmartHome.Infrastructure.DbContexts.Implementations
 {
@@ -32,10 +31,5 @@ namespace SmartHome.Infrastructure.DbContexts.Implementations
         ///     Relay button tables
         /// </summary>
         public DbSet<RelayButton> RelayButtons { get; set; }
-
-        /// <summary>
-        ///     Relay toggles table
-        /// </summary>
-        public DbSet<RelayToggle> RelaySwitches { get; set; }
     }
 }

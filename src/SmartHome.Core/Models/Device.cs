@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using SmartHome.Core.Models.Abstractions;
 
 namespace SmartHome.Core.Models
 {
@@ -47,10 +46,9 @@ namespace SmartHome.Core.Models
         [Required]
         public string MacAddress { get; set; }
 
-        // TODO Actor components
         /// <summary>
-        ///     Actor components
+        ///     Represents the relation between the devices and groups.
         /// </summary>
-        //public virtual List<ActorComponent> ActorComponents { get; set; }
+        public List<DeviceGroup> DeviceGroups { get; set; }
     }
 }

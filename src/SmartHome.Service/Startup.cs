@@ -19,6 +19,9 @@ using SmartHome.Infrastructure;
 using SmartHome.Infrastructure.DbContexts.Abstractions;
 using SmartHome.Infrastructure.DbContexts.Implementations;
 using SmartHome.Infrastructure.Services.Implementations;
+using SmartHome.Weather.OpenWeather;
+using SmartHome.Weather.Scheduler;
+using SmartHome.Weather.Services;
 
 namespace SmartHome.Service
 {
@@ -63,7 +66,11 @@ namespace SmartHome.Service
 
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IDeviceService, Infrastructure.Services.Implementations.DeviceService>();
+            services.AddScoped<IDeviceService, DeviceService>();
+
+            services.AddTransient<IWeatherService, OpenWeatherService>();
+            services.AddSingleton<IHostedService, SunriseTask>();
+            services.AddSingleton<IHostedService, SunsetTask>();
         }
 
         /// <summary>
@@ -120,7 +127,7 @@ namespace SmartHome.Service
                     TermsOfService = null,
                     Contact = new OpenApiContact
                     {
-                        Name = "Aaron Müller"
+                        Name = "Your name"
                     }
                 });
 
@@ -173,9 +180,6 @@ namespace SmartHome.Service
         {
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
-
-            using var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
-            serviceScope.ServiceProvider.GetService<SmartHomeDbContext>().Database.Migrate();
 
             app.UseHttpsRedirection();
 

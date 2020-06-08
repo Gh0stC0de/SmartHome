@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using SmartHome.Core.Models;
-using SmartHome.Core.Models.Abstractions;
-using SmartHome.Core.Models.Implementations;
 using SmartHome.Infrastructure.DbContexts.Implementations;
 
 namespace SmartHome.Infrastructure.DbContexts
@@ -28,21 +25,7 @@ namespace SmartHome.Infrastructure.DbContexts
                     Description = "Test description",
                     IPv4Address = "127.0.0.1",
                     Location = "Local",
-                    MacAddress = "000:000:000:000",
-                    //ActorComponents = new List<ActorComponent>
-                    //{
-                    //    new RelayButton
-                    //    {
-                    //        Name = "Test RelayButton",
-                    //        PinNumber = 1,
-                    //        Delay = 10
-                    //    },
-                    //    new RelayToggle
-                    //    {
-                    //        Name = "Test Switch",
-                    //        PinNumber = 2
-                    //    }
-                    //}
+                    MacAddress = "000:000:000:000"
                 });
 
                 try

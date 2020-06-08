@@ -11,6 +11,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartHome.Presentation", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartHome.Service", "SmartHome.Service\SmartHome.Service.csproj", "{6F6854F3-0323-4B2F-9BBB-EF0798F82DD4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Components", "Components", "{EB98C57C-4664-49F5-A645-7C407A5215A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartHome.Scheduler", "SmartHome.Scheduler\SmartHome.Scheduler.csproj", "{BD21748F-FEFD-4ECB-B718-27246311BA0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHome.Weather", "SmartHome.Weather\SmartHome.Weather.csproj", "{0F6A60F9-5F5A-4C60-9B31-8F9648FD077F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FDD7910E-C4D1-41D7-8BDE-23C2F0A9CBA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHome.Weather.Tests", "SmartHome.Weather.Tests\SmartHome.Weather.Tests.csproj", "{2F89294E-EC9B-43E6-A457-112B762B6267}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,9 +43,26 @@ Global
 		{6F6854F3-0323-4B2F-9BBB-EF0798F82DD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F6854F3-0323-4B2F-9BBB-EF0798F82DD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F6854F3-0323-4B2F-9BBB-EF0798F82DD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD21748F-FEFD-4ECB-B718-27246311BA0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD21748F-FEFD-4ECB-B718-27246311BA0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD21748F-FEFD-4ECB-B718-27246311BA0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD21748F-FEFD-4ECB-B718-27246311BA0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F6A60F9-5F5A-4C60-9B31-8F9648FD077F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F6A60F9-5F5A-4C60-9B31-8F9648FD077F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F6A60F9-5F5A-4C60-9B31-8F9648FD077F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F6A60F9-5F5A-4C60-9B31-8F9648FD077F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F89294E-EC9B-43E6-A457-112B762B6267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F89294E-EC9B-43E6-A457-112B762B6267}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F89294E-EC9B-43E6-A457-112B762B6267}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F89294E-EC9B-43E6-A457-112B762B6267}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BD21748F-FEFD-4ECB-B718-27246311BA0C} = {EB98C57C-4664-49F5-A645-7C407A5215A5}
+		{0F6A60F9-5F5A-4C60-9B31-8F9648FD077F} = {EB98C57C-4664-49F5-A645-7C407A5215A5}
+		{2F89294E-EC9B-43E6-A457-112B762B6267} = {FDD7910E-C4D1-41D7-8BDE-23C2F0A9CBA2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {13CFDB22-C731-439F-B7B1-A4C32F8ADE04}

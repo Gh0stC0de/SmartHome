@@ -10,14 +10,29 @@ namespace SmartHome.Infrastructure.DbContexts.Abstractions
     public interface ISmartHomeDbContext : IDisposable
     {
         /// <summary>
-        ///     User database set
+        ///     User database set.
         /// </summary>
         DbSet<User> Users { get; set; }
 
         /// <summary>
-        ///     Device database set
+        ///     Device database set.
         /// </summary>
         DbSet<Device> Devices { get; set; }
+
+        /// <summary>
+        ///     Relay buttons database set.
+        /// </summary>
+        public DbSet<RelayButton> RelayButtons { get; set; }
+
+        /// <summary>
+        ///     Shutter database set.
+        /// </summary>
+        public DbSet<Shutter> Shutters { get; set; }
+
+        /// <summary>
+        ///     Groups database set.
+        /// </summary>
+        public DbSet<Group> Groups { get; set; }
 
         /// <summary>
         ///     <para>
